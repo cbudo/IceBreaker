@@ -11,7 +11,6 @@ namespace Ice_Breaker_API.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-
             return View();
         }
     }
