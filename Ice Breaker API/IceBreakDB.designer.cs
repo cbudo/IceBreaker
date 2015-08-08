@@ -159,6 +159,20 @@ namespace Ice_Breaker_API
 			return ((ISingleResult<GET_Active_UsersResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_BreaksInIce")]
+		public ISingleResult<GET_BreaksInIceResult> GET_BreaksInIce()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GET_BreaksInIceResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_User")]
+		public ISingleResult<GET_UserResult> GET_User([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string email)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email);
+			return ((ISingleResult<GET_UserResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_User_Interests")]
 		public ISingleResult<GET_User_InterestsResult> GET_User_Interests([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="NVarChar(100)")] string userID)
 		{
@@ -171,13 +185,6 @@ namespace Ice_Breaker_API
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, @long, lat);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_User")]
-		public ISingleResult<GET_UserResult> GET_User([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string email)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email);
-			return ((ISingleResult<GET_UserResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1372,45 +1379,63 @@ namespace Ice_Breaker_API
 		}
 	}
 	
-	public partial class GET_User_InterestsResult
+	public partial class GET_BreaksInIceResult
 	{
 		
-		private string _Interest;
+		private string _name;
 		
-		private string _Description;
+		private string _photoURL;
 		
-		public GET_User_InterestsResult()
+		private System.Nullable<int> _Breaks;
+		
+		public GET_BreaksInIceResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Interest", DbType="NVarChar(MAX)")]
-		public string Interest
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(250)")]
+		public string name
 		{
 			get
 			{
-				return this._Interest;
+				return this._name;
 			}
 			set
 			{
-				if ((this._Interest != value))
+				if ((this._name != value))
 				{
-					this._Interest = value;
+					this._name = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_photoURL", DbType="NVarChar(MAX)")]
+		public string photoURL
 		{
 			get
 			{
-				return this._Description;
+				return this._photoURL;
 			}
 			set
 			{
-				if ((this._Description != value))
+				if ((this._photoURL != value))
 				{
-					this._Description = value;
+					this._photoURL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Breaks", DbType="Int")]
+		public System.Nullable<int> Breaks
+		{
+			get
+			{
+				return this._Breaks;
+			}
+			set
+			{
+				if ((this._Breaks != value))
+				{
+					this._Breaks = value;
 				}
 			}
 		}
@@ -1491,6 +1516,50 @@ namespace Ice_Breaker_API
 				if ((this._photoURL != value))
 				{
 					this._photoURL = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_User_InterestsResult
+	{
+		
+		private string _Interest;
+		
+		private string _Description;
+		
+		public GET_User_InterestsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Interest", DbType="NVarChar(MAX)")]
+		public string Interest
+		{
+			get
+			{
+				return this._Interest;
+			}
+			set
+			{
+				if ((this._Interest != value))
+				{
+					this._Interest = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
 				}
 			}
 		}

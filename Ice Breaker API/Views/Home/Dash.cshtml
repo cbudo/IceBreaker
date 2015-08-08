@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Ice_Breaker_API.GET_BreaksInIceResult>
+
+@{
+    ViewBag.Title = "IceBreaker Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Breaks)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <div class="circular"><img src="@(item.photoURL)" alt="ImageNotFound" height="100px" width="100px" /></div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Breaks)
+        </td>
+    </tr>
+}
+
+</table>
