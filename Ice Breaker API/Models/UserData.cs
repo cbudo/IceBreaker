@@ -13,4 +13,5 @@ namespace Ice_Breaker_API.Models
         public string photoURL;
 
     }
+
 }

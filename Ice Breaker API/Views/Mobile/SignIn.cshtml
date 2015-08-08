@@ -1,0 +1,14 @@
+﻿@model Ice_Breaker_API.Models.UserData
+@{
+    ViewBag.Title = "SignIn";
+}
+
+<h2>SignIn</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-control">
+        @Html.TextBoxFor(m => m.email)
+    </div>
+    <div class="form-control"><input value="submit" type="submit"/></div>
+}
+

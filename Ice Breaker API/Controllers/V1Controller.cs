@@ -48,7 +48,7 @@ namespace Ice_Breaker_API.Controllers
         /// <param name="longitude"></param>
         /// <param name="latitude"></param>
         /// <returns></returns>
-        public string SetActiveUser(string email, float longitude, float latitude)
+        public IEnumerable<GET_Active_UsersResult> SetActiveUser(string email, float longitude, float latitude)
         {
             try
             {
@@ -56,14 +56,13 @@ namespace Ice_Breaker_API.Controllers
                 db.SET_User_Active(email, longitude, latitude);
                 var users = db.GET_Active_Users();  //gets list of all active users 
 
-                var userData = users.Where(m => distance(m.Latitude, m.Longitude, latitude, longitude, 'K') < 0.10);
+                var userData = users.Where(m =>m.Email!=email);
+                return userData;
                 //var useremails = users.Where(m => m.Email == "asdf@adsf.com");
-                string output = JsonConvert.SerializeObject(userData);
-                return output;
             }
             catch
             {
-                return String.Empty;
+                return null;
             }
 
         }

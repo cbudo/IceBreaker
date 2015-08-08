@@ -1,0 +1,60 @@
+﻿@using Ice_Breaker_API.Controllers
+
+@{
+    ViewBag.Title = "Index";
+    V1Controller v1 = new V1Controller();
+}
+
+<h2>Index - Chris</h2>
+<div class="hidden" id="demo">
+
+</div>
+<div>
+    @Html.ActionLink("SignOut","SignOut",new {email="cb9595@gmail.com"})
+</div>
+<div>
+    <table class="table" id="nearby">
+        <thead><tr><td></td><td>Name</td></tr></thead>
+        <tbody>
+            @foreach (var item in v1.SetActiveUser("cb9595@gmail.com", 25.78f, 78.98f))
+            {
+                <tr>
+                    <td>
+                        <div>
+                            <img src="@(item.photoURL)" height="100px" width="100px"/>
+                        </div>
+                    </td>
+                    <td>@(item.name)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    $(Document).ready(function () {
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            $.getJSON("http://icebreaker.azurewebsites.net/v1/SetActiveUser?email=cb9595@gmail.com&latitude=" + position.coords.latitude + "&longitude=" + Position.coords.longitude, function (data) {
+                var items = [];
+                $.each(data, function (data) {
+                    items.push("<tr id='" + data["Email"] + "'><td> <img src='" + data["photoURL"] + "'/></td><td>" + data["name"] + "</td></tr>");
+                });
+                $("<tbody/>", {
+                    "class": "table",
+                    html: items.join("")
+                }).appendTo("thead");
+            });
+        }
+    });
+</script>

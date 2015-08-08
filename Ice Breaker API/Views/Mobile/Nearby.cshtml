@@ -1,0 +1,32 @@
+﻿@using Ice_Breaker_API.Controllers
+
+@{
+    ViewBag.Title = "Index";
+    V1Controller v1 = new V1Controller();
+}
+
+<h2>Index - Bob</h2>
+<div class="hidden" id="demo">
+
+</div>
+<div>
+    @Html.ActionLink("SignOut", "SignOut", new { email = "billy@bob.com" })
+</div>
+<div>
+    <table class="table" id="nearby">
+        <thead><tr><td></td><td>Name</td></tr></thead>
+        <tbody>
+            @foreach (var item in v1.SetActiveUser("billy@bob.com", 25.78f, 78.98f))
+            {
+                <tr>
+                    <td>
+                        <div>
+                            <img src="@(item.photoURL)" height="100px" width="100px" />
+                        </div>
+                    </td>
+                    <td>@(item.name)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
