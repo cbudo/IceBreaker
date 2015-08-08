@@ -1,4 +1,4 @@
-package asdf.icebreakers.icebreaker;
+package asdf.icebreakers.icebreakers;
 
 import android.app.Activity;
 import android.os.Bundle;
