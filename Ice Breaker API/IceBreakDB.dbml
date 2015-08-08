@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IceBreaker" Class="IceBreakDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=budohacks.database.windows.net;Initial Catalog=IceBreaker;User ID=budocf" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="IceBreakerConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Active" Member="Actives">
+    <Type Name="Active">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="User_Active" Member="User" ThisKey="Email" OtherKey="email" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BrokenIce" Member="BrokenIces">
+    <Type Name="BrokenIce">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="connectedEmail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="User_BrokenIce" Member="User" ThisKey="connectedEmail" OtherKey="email" Type="User" IsForeignKey="true" />
+      <Association Name="User_BrokenIce1" Member="User1" ThisKey="email" OtherKey="email" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Interest" Member="Interests">
+    <Type Name="Interest">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Interest" Member="Interest1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Interest_User_Interest_rel" Member="User_Interest_rels" ThisKey="Id" OtherKey="InterestIDFK" Type="User_Interest_rel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="email" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="token" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="photoURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="User_Active" Member="Actives" ThisKey="email" OtherKey="Email" Type="Active" />
+      <Association Name="User_BrokenIce" Member="BrokenIces" ThisKey="email" OtherKey="connectedEmail" Type="BrokenIce" />
+      <Association Name="User_BrokenIce1" Member="BrokenIces1" ThisKey="email" OtherKey="email" Type="BrokenIce" />
+      <Association Name="User_User_Interest_rel" Member="User_Interest_rels" ThisKey="email" OtherKey="UserIDFK" Type="User_Interest_rel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.User_Interest_rel" Member="User_Interest_rels">
+    <Type Name="User_Interest_rel">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserIDFK" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="InterestIDFK" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Interest_User_Interest_rel" Member="Interest" ThisKey="InterestIDFK" OtherKey="Id" Type="Interest" IsForeignKey="true" />
+      <Association Name="User_User_Interest_rel" Member="User" ThisKey="UserIDFK" OtherKey="email" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ADD_BrokenIce" Method="ADD_BrokenIce">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="connectedEmail" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="lat" Type="System.Double" DbType="Float" />
+    <Parameter Name="long" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SET_User_Inactive" Method="SET_User_Inactive">
+    <Parameter Name="User" Parameter="user" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ADD_Interest" Method="ADD_Interest">
+    <Parameter Name="interest" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ADD_User" Method="ADD_User">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="token" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="PhotoURL" Parameter="photoURL" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ADD_User_Interest" Method="ADD_User_Interest">
+    <Parameter Name="User" Parameter="user" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Interest" Parameter="interest" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GET_Active_Users" Method="GET_Active_Users">
+    <ElementType Name="GET_Active_UsersResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="token" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="photoURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_User_Interests" Method="GET_User_Interests">
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="GET_User_InterestsResult">
+      <Column Name="Interest" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SET_User_Active" Method="SET_User_Active">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Long" Parameter="long" Type="System.Double" DbType="Float" />
+    <Parameter Name="Lat" Parameter="lat" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GET_User" Method="GET_User">
+    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="GET_UserResult">
+      <Column Name="email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="token" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="photoURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
