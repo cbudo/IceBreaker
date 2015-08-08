@@ -91,6 +91,22 @@
       <Column Name="photoURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GET_BreaksInIce" Method="GET_BreaksInIce">
+    <ElementType Name="GET_BreaksInIceResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="photoURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Breaks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_User" Method="GET_User">
+    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="GET_UserResult">
+      <Column Name="email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="token" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="photoURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.GET_User_Interests" Method="GET_User_Interests">
     <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(100)" />
     <ElementType Name="GET_User_InterestsResult">
@@ -103,14 +119,5 @@
     <Parameter Name="Long" Parameter="long" Type="System.Double" DbType="Float" />
     <Parameter Name="Lat" Parameter="lat" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.GET_User" Method="GET_User">
-    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
-    <ElementType Name="GET_UserResult">
-      <Column Name="email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="token" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="photoURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </ElementType>
   </Function>
 </Database>

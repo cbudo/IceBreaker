@@ -23,7 +23,6 @@ namespace Ice_Breaker_API.Controllers
             return json;
         }
 
-
         //public bool Add(string jsonUserData)
         //{
         //    jsonUserData = "{'email':'Soumya@gmail.com','name':'Soumya','token':'THISISME','photoURL':'thisimg.png'}";  //testing purpose
@@ -78,6 +77,7 @@ namespace Ice_Breaker_API.Controllers
         public string Add(string jsonUserData)
         {
             if (jsonUserData != null)
+            
             {
                 UserData data = new UserData();
                 data = JsonConvert.DeserializeObject<UserData>(jsonUserData);
