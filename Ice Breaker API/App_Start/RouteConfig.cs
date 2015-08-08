@@ -16,8 +16,14 @@ namespace Ice_Breaker_API
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Add", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "GetUser",
+                url: "v1/GetUser/{email}",
+                defaults: new { controller = "v1", action = "GetUser"}
+                );
         }
     }
 }

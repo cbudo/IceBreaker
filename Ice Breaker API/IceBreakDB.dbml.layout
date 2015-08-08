@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="IceBreakDB">
+  <DataContextMoniker Name="/IceBreakDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c9a3220e-db74-44ef-ad49-f5edc6d97535" absoluteBounds="1.125, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/IceBreakDBDataContext/Active" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9eb5be98-dcaa-4550-a105-dda1c65d6936" absoluteBounds="1.1400000000000001, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="194476c7-60c6-4a51-83f1-0639fe83f705" absoluteBounds="0.75, 2.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/IceBreakDBDataContext/BrokenIce" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef58bd11-e071-4247-a5ca-a2a2352b3cdd" absoluteBounds="0.765, 3.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="418574b0-d68b-4a16-9510-05d4ecf75840" absoluteBounds="2.25, 5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/IceBreakDBDataContext/Interest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc37b698-7a6a-40b8-839e-a5f6707f5f90" absoluteBounds="2.265, 5.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ed3a4df-6ab0-429e-a4dc-6b78fb1f553a" absoluteBounds="4.625, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/IceBreakDBDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ba9bb8e-30c8-4f14-805c-cb69304b90fd" absoluteBounds="4.64, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.625 : 1.57294840494792); (3.125 : 1.57294840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IceBreakDBDataContext/User/User_Active" />
+      <nodes>
+        <classShapeMoniker Id="6ed3a4df-6ab0-429e-a4dc-6b78fb1f553a" />
+        <classShapeMoniker Id="c9a3220e-db74-44ef-ad49-f5edc6d97535" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.42187625 : 2.45359537760417); (5.42187625 : 3.66727603027344); (2.75 : 3.66727603027344)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IceBreakDBDataContext/User/User_BrokenIce" />
+      <nodes>
+        <classShapeMoniker Id="6ed3a4df-6ab0-429e-a4dc-6b78fb1f553a" />
+        <classShapeMoniker Id="194476c7-60c6-4a51-83f1-0639fe83f705" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0937475 : 2.45359537760417); (5.0937475 : 3.08454706054688); (2.75 : 3.08454706054688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IceBreakDBDataContext/User/User_BrokenIce1" />
+      <nodes>
+        <classShapeMoniker Id="6ed3a4df-6ab0-429e-a4dc-6b78fb1f553a" />
+        <classShapeMoniker Id="194476c7-60c6-4a51-83f1-0639fe83f705" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e52705bc-e391-414f-95c3-57ce94e581a8" absoluteBounds="5.75, 4.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/IceBreakDBDataContext/User_Interest_rel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2d98e2b-87af-42d3-88fe-da68807584b7" absoluteBounds="5.7650000000000006, 4.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 5.31814697265625); (5.75 : 5.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IceBreakDBDataContext/Interest/Interest_User_Interest_rel" />
+      <nodes>
+        <classShapeMoniker Id="418574b0-d68b-4a16-9510-05d4ecf75840" />
+        <classShapeMoniker Id="e52705bc-e391-414f-95c3-57ce94e581a8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.1875 : 2.45359537760417); (6.1875 : 4.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IceBreakDBDataContext/User/User_User_Interest_rel" />
+      <nodes>
+        <classShapeMoniker Id="6ed3a4df-6ab0-429e-a4dc-6b78fb1f553a" />
+        <classShapeMoniker Id="e52705bc-e391-414f-95c3-57ce94e581a8" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
