@@ -12,10 +12,14 @@
     >
 
     <TextView
-        android:layout_width="fill_parent"
+
+        android:layout_gravity="center"
+        android:gravity="center"
+
+        android:layout_width="wrap_content"
         android:layout_height="100dp"
 
-        android:text="ASDF"
+        android:text="Icebreaker"
 
         />
 
@@ -26,20 +30,22 @@
 
         <Switch
 
+
+            android:layout_gravity="center"
             android:gravity="center"
 
-            android:layout_centerHorizontal="true"
 
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
 
-            android:switchMinWidth="56dp"
+            android:switchMinWidth="300dp"
+
             android:thumb="@drawable/thumb"
             android:track="@drawable/track"
 
-            android:textOff="OFF"
+            android:textOff="             OFF                    "
 
-            android:textOn="ON"
+            android:textOn="             ON                    "
 
 
             />

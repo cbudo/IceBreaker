@@ -4,11 +4,11 @@
     android:shape="rectangle">
 
     <size
-        android:height="400dp"
+        android:height="200dp"
         />
 
     <gradient
-        android:height="400dp"
+        android:height="200dp"
         android:startColor="#FF569BDA"
         android:endColor="#FF569BDA"
         />
