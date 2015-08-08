@@ -1,4 +1,4 @@
-package asdf.icebreakers.icebreakers.service.svc;
+package asdf.icebreakers.icebreakers.service.def;
 
 import java.util.ArrayList;
 

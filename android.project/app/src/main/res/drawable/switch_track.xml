@@ -1,10 +1,10 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_focused="true"
-        android:drawable="@drawable/color_thumb" />
+        android:drawable="@drawable/switch_color_thumb" />
 
     <item
-        android:drawable="@drawable/gray_track" />
+        android:drawable="@drawable/switch_gray_track" />
 
 </selector>
 

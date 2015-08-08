@@ -29,8 +29,8 @@ import java.util.Date;
 import java.util.Locale;
 
 import asdf.icebreakers.icebreakers.R;
-import asdf.icebreakers.icebreakers.service.def.SpotService;
-import asdf.icebreakers.icebreakers.service.svc.ISpotService;
+import asdf.icebreakers.icebreakers.service.svc.SpotService;
+import asdf.icebreakers.icebreakers.service.def.ISpotService;
 import asdf.icebreakers.icebreakers.utility.AddressUtil;
 import asdf.icebreakers.icebreakers.utility.StateUtil;
 

@@ -40,8 +40,8 @@
 
             android:switchMinWidth="300dp"
 
-            android:thumb="@drawable/thumb"
-            android:track="@drawable/track"
+            android:thumb="@drawable/switch_thumb"
+            android:track="@drawable/switch_track"
 
             android:textOff="             OFF                    "
 

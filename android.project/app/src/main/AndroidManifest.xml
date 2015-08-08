@@ -17,39 +17,51 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".view.Welcome"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" >
         </activity>
-
         <activity
             android:name=".view.IceLocation"
             android:label="@string/title_activity_location"
             android:launchMode="singleTop"
-            >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".view.Welcome" />
         </activity>
-
         <activity
             android:name=".view.Splash"
             android:label="@string/app_name"
-            android:windowSoftInputMode="adjustNothing"
             android:screenOrientation="portrait"
-            >
+            android:windowSoftInputMode="adjustNothing" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".view.IcePeople"
+            android:label="@string/title_activity_people"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.Welcome" />
+        </activity>
+        <activity
+            android:name=".view.TestWebService"
+            android:label="@string/title_activity_test_web_service" >
+        </activity>
     </application>
 
 </manifest>

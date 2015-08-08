@@ -1,4 +1,4 @@
-package asdf.icebreakers.icebreakers.service.def;
+package asdf.icebreakers.icebreakers.service.svc;
 
 import android.content.Context;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import asdf.icebreakers.icebreakers.model.dao.SpotDAO;
 import asdf.icebreakers.icebreakers.model.def.ISpotDAO;
 import asdf.icebreakers.icebreakers.model.dto.SpotDTO;
-import asdf.icebreakers.icebreakers.service.svc.ISpotService;
+import asdf.icebreakers.icebreakers.service.def.ISpotService;
 
 public class SpotService implements ISpotService {
 

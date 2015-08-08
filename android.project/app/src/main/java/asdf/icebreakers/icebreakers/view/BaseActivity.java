@@ -68,10 +68,10 @@ public class BaseActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         // (groupId, itemId, order, title)
-        menu.add(0, MENU_OPTION_1, Menu.NONE, "one");
-        menu.add(0, MENU_OPTION_2, Menu.NONE, "two" );
-        menu.add(0, MENU_OPTION_3, Menu.NONE, "three" );
-        menu.add(0, MENU_OPTION_4, Menu.NONE, "four" );
+//        menu.add(0, MENU_OPTION_1, Menu.NONE, "one");
+//        menu.add(0, MENU_OPTION_2, Menu.NONE, "two" );
+//        menu.add(0, MENU_OPTION_3, Menu.NONE, "three" );
+//        menu.add(0, MENU_OPTION_4, Menu.NONE, "four" );
 //
 //        return true;
 
@@ -94,13 +94,16 @@ public class BaseActivity extends Activity {
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
 
-            case MENU_OPTION_1:
+            case R.id.action_bar_compass: //defined in base_activity_action_bar.xml
                 openMyLocation();
                 return true;
 
+            case R.id.action_bar_people:
+                openMyPeople();
+                return true;
 
-            case R.id.action_compass:
-                openMyLocation();
+            case R.id.action_bar_test:
+                openTest();
                 return true;
 //
 //            case R.id.:
@@ -116,6 +119,20 @@ public class BaseActivity extends Activity {
     private void openMyLocation() {
         // declare the intent
         Intent intent = new Intent(BaseActivity.this, IceLocation.class);
+        // act on the intent
+        startActivity(intent);
+    }
+
+    private void openMyPeople() {
+        // declare the intent
+        Intent intent = new Intent(BaseActivity.this, IcePeople.class);
+        // act on the intent
+        startActivity(intent);
+    }
+
+    private void openTest() {
+        // declare the intent
+        Intent intent = new Intent(BaseActivity.this, TestWebService.class);
         // act on the intent
         startActivity(intent);
     }

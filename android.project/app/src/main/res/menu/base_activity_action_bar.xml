@@ -2,13 +2,27 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    
-    <item android:id="@+id/action_compass"
-        android:title="@string/action_settings"
+
+    <item android:id="@+id/action_bar_people"
+        android:title="People"
         android:showAsAction="always"
 
+        android:icon="@android:drawable/ic_menu_call"
+        />
+
+
+    <item android:id="@+id/action_bar_compass"
+        android:title="Location"
+        android:showAsAction="always"
 
         android:icon="@android:drawable/ic_menu_compass"
+        />
+
+    <item android:id="@+id/action_bar_test"
+        android:title="TEST"
+        android:showAsAction="always"
+
+        android:icon="@android:drawable/ic_menu_info_details"
         />
 
 
